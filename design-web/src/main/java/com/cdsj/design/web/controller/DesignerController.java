@@ -38,8 +38,8 @@ public class DesignerController {
         return DesignResponse.result(ResultEnum.SUCCESS, tbMgrDesigner);
     }
 
-    @DeleteMapping("/designer/{loginid}")
-    public DesignResponse<TbMgrDesigner> removeDesigner(@PathVariable("loginid") Long desNo){
+    @DeleteMapping("/designer/{desNo}")
+    public DesignResponse<TbMgrDesigner> removeDesigner(@PathVariable("desNo") Long desNo){
         try {
             tbMgrDesignerService.deleteDesigner(desNo);
         }catch (Exception e){
@@ -59,7 +59,7 @@ public class DesignerController {
     }
 
     @GetMapping("/designer")
-    public DesignResponse<TbMgrDesigner> queryDesigner(@RequestParam("loginid") Long desNo){
+    public DesignResponse<TbMgrDesigner> queryDesigner(@RequestParam("desNo") Long desNo){
         TbMgrDesigner tbMgrDesigner = tbMgrDesignerMapper.selectByPrimaryKey(desNo);
         return DesignResponse.result(ResultEnum.SUCCESS, tbMgrDesigner);
     }
